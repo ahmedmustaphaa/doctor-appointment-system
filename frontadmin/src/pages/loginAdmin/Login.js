@@ -1,90 +1,84 @@
 import React, { useState } from 'react';
-import './login.css';
 import axios from 'axios';
 import { UseproviderContext } from '../../context/Appcontext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
-import {useNavigate} from 'react-router-dom'
-import { ClipLoader } from 'react-spinners'; // مكتبة التحميل
 function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [state, setState] = useState('admin');
-    const { setToken } = UseproviderContext();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [state, setState] = useState('admin');
+  const { setToken } = UseproviderContext();
+  const navigate = useNavigate();
 
-    
+  const loginAdmin = async () => {
+    try {
+      const response = await axios.post('http://localhost:4000/api/admin/login', { email, password });
+      const token = response.data.token;
+      localStorage.setItem('token', token);
+      setToken(token);
+      toast.success('Login successful, welcome!');
+      navigate('/dashboard'); // Navigate after login
+    } catch (error) {
+      toast.error('Login failed. Please check your credentials.');
+    }
+  };
 
-    const  navigate=useNavigate()
-    const loginAdmin = async () => {
-       
-        try {
-            const response = await axios.post('http://localhost:4000/api/admin/login', { email, password });
-            const token = response.data.token;
-            console.log(token)
-            localStorage.setItem('token', token);
-            setToken(token);
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-blue-300">
+      <div className="bg-white shadow-xl rounded-lg w-full max-w-md p-8">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+          {state === "admin" ? "Admin" : "Doctor"} Login
+        </h1>
 
-            toast.success('Login successful, welcome!', {
-                position: "top-right",
-                autoClose: 5000,
-            });
+        <form onSubmit={(e) => { e.preventDefault(); loginAdmin(); }} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-           
-        } catch (error) {
-            console.error('Login failed:', error);
-            toast.error('Login failed. Please check your credentials.', {
-                position: "top-right",
-                autoClose: 5000,
-            });
-        }
-    };
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-    
-    return (
-        <div>
+          <div className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="roleSwitch"
+              onClick={() => setState(state === "admin" ? "doctor" : "admin")}
+              className="w-4 h-4"
+            />
+            <label htmlFor="roleSwitch" className="text-sm text-gray-600">
+              Switch to {state === "admin" ? "Doctor" : "Admin"}
+            </label>
+          </div>
 
-        <div className='adminLogin'>
-        <div className='login'>
-            <div className='login-container'>
-                <form onSubmit={(e) => { e.preventDefault(); loginAdmin(); }}>
-                    <div className='form-content'>
-                        <h1>{state === "admin" ? <span>Admin</span> : <span>Doctor</span>} Login</h1>
-                        <input 
-                            type='email' 
-                            placeholder='Email' 
-                            required 
-                            value={email} 
-                            onChange={(e) => setEmail(e.target.value)} 
-                        />
-                        <input 
-                            type='password' 
-                            placeholder='Password' 
-                            required 
-                            value={password} 
-                            onChange={(e) => setPassword(e.target.value)} 
-                        />
-                        <div className="role-toggle">
-                            <input 
-                                type="checkbox" 
-                                id="roleSwitch" 
-                                onClick={() => setState(state === "admin" ? "doctor" : "admin")}
-                            />
-                            <label htmlFor="roleSwitch" style={{color:'green'}}>
-                                Switch to {state === "admin" ? "Doctor" : "Admin"}
-                            </label>
-                        </div>
-                        <p style={{color:'#fff'}}>If you have access to an administrator (or admin) account, you can sign in to the Google Admin console. The Admin console is where admins manage Google services for people in an organization.</p>
-                        <button type="submit" className="submitloginbtn">Login</button>
-                    </div>
-                </form>
-            </div>
-           
-            <ToastContainer />
-        </div>
-        </div>
-        </div>
-    );
+          <p className="text-xs text-gray-500">
+            If you have access to an administrator (or admin) account, you can sign in to the Admin console. The Admin console is where admins manage services for people in an organization.
+          </p>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300 font-medium"
+          >
+            Login
+          </button>
+        </form>
+
+        <ToastContainer />
+      </div>
+    </div>
+  );
 }
 
 export default Login;

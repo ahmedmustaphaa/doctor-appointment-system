@@ -1,34 +1,32 @@
 import React from 'react';
 import { UseproviderContext } from '../../../context/Appcontext';
-import './navbar.css';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons
-function Navbar({handleToggle,toggle}) {
-    const { atoken, setToken } = UseproviderContext();
 
-    const handleLogout = () => {
-        localStorage.removeItem('token'); // Remove token from local storage
-        setToken(''); // Clear token in context
-    };
+function Navbar() {
+  const { atoken, setToken } = UseproviderContext();
 
-    return (
-        <div className="navbar">
-              <div>
-              <button className="toggle-button" style={{left :!toggle?'5%' :'20%'}}  onClick={handleToggle} >
-                            {toggle ? <FaBars /> : <FaBars />} 
-                        </button>
-              </div>
-           <div>
-           {atoken && (
-            <button 
-                onClick={handleLogout}
-                className="logout-button"
-            >
-                Logout
-            </button>
-        )}
-           </div>
-        </div>
-    );
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+  };
+
+  return (
+    <nav className="w-full h-20 bg-white shadow-md px-6 flex items-center justify-between">
+      {/* شعار أو اسم التطبيق */}
+      <div className="text-xl font-semibold text-gray-800 tracking-wide">
+        Admin Dashboard
+      </div>
+
+      {/* زر تسجيل الخروج */}
+      {atoken && (
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-all duration-300 shadow-sm"
+        >
+          Logout
+        </button>
+      )}
+    </nav>
+  );
 }
 
 export default Navbar;

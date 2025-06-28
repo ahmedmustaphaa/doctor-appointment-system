@@ -36,14 +36,7 @@ function App() {
         }
     }, [setToken]);
 
-    const handleToggle = () => {
-        setToggle(prevToggle => !prevToggle);
-    };
-
-    const closeSide=()=>{
-        setToggle(false)
-    }
-
+   
   
     return !atoken ? (
         <div>
@@ -51,13 +44,14 @@ function App() {
         </div>
     ) : (
         <div>
-            <Navbar toggle={toggle} handleToggle={handleToggle} />
-            <div className='admin-dashboard'>
-                <div className={toggle ? 'sidebar' : "sidebar-collapsed"} style={{ className: width <= 900 ? 'sidebar-collapsed' : 'sidebar' }}>
-                    <Sidebar closeSide={closeSide}/>
+            <Navbar  />
+            <div className='flex ' >
+                <div className=' w-[60px]  md:w-[260px]' >
+                    <Sidebar />
                 </div>
-                <div className='right-side' style={{ marginLeft: toggle ? '20%' : '0%' }}>
-                    <Routes>
+             <div className="flex-1 overflow-y-auto  h-[calc(100vh-64px)] hide-scrollbar">
+
+                    <Routes >
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/allAppointment" element={<Allappointment />} />
                         <Route path="/adddoctor" element={<Adddoctor />} />
