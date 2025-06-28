@@ -1,6 +1,6 @@
 import Doctor from "../models/doctormodel.js";
 import { v2 as cloudinary } from 'cloudinary';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'   
 import { appointment } from "../models/appoinment.js";
 import usermodel from "../models/usermodel.js";
