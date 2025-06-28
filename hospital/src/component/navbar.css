@@ -1,0 +1,123 @@
+.m {
+  background-color: #fff;
+  position: relative;
+}
+
+.navbar-button {
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+}
+
+.navbar-button:hover {
+  background-color: #2563eb;
+}
+
+.info {
+  margin-top: 10px;
+}
+
+.absolute {
+  position: absolute;
+  z-index: 99999;
+}
+
+.dropdown-menu {
+  background-color: white;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f3f4f6;
+}
+
+.flex {
+  display: flex;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.navlink {
+  color: #333;
+  text-transform: capitalize;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navlink::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navlink:hover {
+  color: #007bff;
+}
+
+.navlink:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.navlink:active {
+  color: #0056b3;
+}
+
+.hamburgicon {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .hamburgicon {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+  }
+
+  .navlinks {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    text-align: center;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    transition: all  2s;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
+
+  .navlink {
+    padding: 12px 20px;
+    font-size: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .navlink:last-child {
+    border-bottom: none;
+  }
+}

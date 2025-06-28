@@ -1,0 +1,175 @@
+.moreDoc {
+  background: #f4f7fc;
+  position: relative;
+  padding: 20px 0;
+}
+
+.cliploader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title-info {
+  color: blue;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.doctor-container {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  min-width: 200px;
+  flex: 1;
+}
+
+.sidebar p {
+  padding: 12px;
+  font-size: 16px;
+  margin: 8px 0;
+  border-radius: 8px;
+  text-align: center;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar p:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.doctor-list {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.doctor-card {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-image {
+  width: 100px;
+  margin: auto;
+  height: 100px;
+  background: #e3f2fd;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.doctor-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.doctor-speciality {
+  font-size: 14px;
+  color: gray;
+  font-weight: bold;
+}
+
+.rating-badge {
+  background: #ffcc00;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.doctor-card .action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.action-buttons button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.action-buttons button:hover {
+  background: #218838;
+  transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .doctor-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .doctor-list {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .doctor-list {
+    grid-template-columns: 1fr;
+  }
+
+  .title-info {
+    font-size: 18px;
+  }
+
+  .doctor-name {
+    font-size: 16px;
+  }
+
+  .doctor-speciality {
+    font-size: 13px;
+  }
+
+  .sidebar p {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .action-buttons button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}

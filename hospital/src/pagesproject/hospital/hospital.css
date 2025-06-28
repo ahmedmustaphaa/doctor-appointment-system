@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.hospital-container {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 40px;
+}
+
+/* Hospital Info Section */
+.hospital-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* Image Side */
+.image-side img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Info Side */
+.info-side {
+  flex: 1;
+  max-width: 700px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.sub-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.info-side p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.create-account-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-account-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hospital-info {
+      gap: 20px; /* Reduce gap for medium screens */
+  }
+
+  .info-side {
+      max-width: 90%; /* Allow more width on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .hospital-info {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .image-side img {
+      max-width: 80%;
+  }
+
+  .info-side {
+      max-width: 100%; /* Full width for small screens */
+      padding: 15px; /* Reduce padding */
+  }
+
+  .main-title {
+      font-size: 28px; /* Smaller title for mobile */
+  }
+
+  .sub-title {
+      font-size: 24px; /* Smaller subtitle for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+      font-size: 24px; /* Even smaller title for very small screens */
+  }
+
+  .sub-title {
+      font-size: 20px; /* Even smaller subtitle for very small screens */
+  }
+
+  .create-account-btn {
+      width: 100%; /* Full width button on mobile */
+      padding: 10px; /* Reduce padding */
+  }
+}

@@ -1,0 +1,100 @@
+.medical-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  width: 96%;
+  align-items: center;
+  margin: 20px auto;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox for better spacing */
+@media (max-width: 768px) {
+  .medical-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Info section */
+.medical-info {
+  text-align: center;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.medical-title {
+  font-size: 2.2rem;
+  color: #007bff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.medical-description {
+  font-size: 1.2em;
+  color: #34495e;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.learn-more-btn {
+  margin-top: 15px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  color: #ffffff;
+  background-color: #2980b9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effect */
+.learn-more-btn:hover {
+  background-color: #3498db;
+  transform: scale(1.05);
+}
+
+/* Medical image */
+.medical-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .medical-title {
+    font-size: 2rem;
+  }
+
+  .medical-description {
+    font-size: 1.1em;
+  }
+
+  .learn-more-btn {
+    font-size: 1em;
+  }
+}
+
+/* Small devices */
+@media (max-width: 480px) {
+  .medical-title {
+    font-size: 1.8rem;
+  }
+
+  .medical-description {
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  .learn-more-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}

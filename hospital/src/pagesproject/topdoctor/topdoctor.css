@@ -1,0 +1,174 @@
+.topDoctor {
+  background: linear-gradient(to right, #f0f4f8, #e2e7ee);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.topdoctor-title {
+  margin-bottom: 1.5em;
+}
+
+.doctor-title {
+  font-size: 2.5rem;
+  padding: 20px 0;
+  text-shadow: 0 0 4px #2c3e50;
+  color: #007bff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.topDoc-section {
+  display: grid;
+  width: 90%;
+  margin: auto;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 50px 30px;
+}
+
+.doctor-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  position: relative;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #007bff;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.doctor-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.doctor-speciality {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.doctor-address {
+  font-size: 14px;
+  color: #666;
+}
+
+.rating {
+  font-size: 16px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-weight: bold;
+  color: #f39c12;
+  background: #fff3cd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.info-experience {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.doctor-experience {
+  font-size: 14px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.btn-more {
+  background-color: #007BFF;
+  transition: background-color 0.3s;
+  display: flex;
+  width: 200px;
+  margin: 30px auto;
+  padding: 14px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 0 4px #0056b3;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-more:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .doctor-title {
+    font-size: 2rem;
+  }
+
+  .topDoc-section {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px 20px;
+  }
+
+  .btn-more {
+    width: 60%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doctor-title {
+    font-size: 1.6rem;
+    padding: 15px 0;
+  }
+
+  .topDoc-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .doctor-card {
+    padding: 12px;
+  }
+
+  .doctor-name {
+    font-size: 18px;
+  }
+
+  .doctor-speciality,
+  .doctor-address,
+  .doctor-experience,
+  .availability {
+    font-size: 13px;
+  }
+
+  .btn-more {
+    width: 80%;
+    font-size: 13px;
+  }
+}

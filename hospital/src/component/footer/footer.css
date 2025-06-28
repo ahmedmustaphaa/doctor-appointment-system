@@ -1,0 +1,156 @@
+.footer-container {
+  background-color: #282c34;
+  color: #ffffff;
+  padding: 20px 0;
+}
+
+.footer {
+  max-width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  width: 150px;
+}
+
+.footer-description {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.footer-left {
+  width: 30%;
+}
+
+.footer-link {
+  margin: 5px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #ffcc00;
+}
+
+.footer-contact {
+  margin: 5px 0;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  flex: 1;
+}
+
+.newsletter-button {
+  padding: 10px;
+  border: none;
+  background-color: #ffcc00;
+  color: #282c34;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-button:hover {
+  background-color: #e6b800;
+}
+
+.social-media {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  color: #ffffff;
+  margin-right: 10px;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.social-icon:hover {
+  color: #ffcc00;
+}
+
+.created {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #aaaaaa;
+}
+
+@media (max-width: 1024px) {
+  .footer-left {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .newsletter-input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .newsletter-button {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .social-media {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-heading {
+    font-size: 16px;
+  }
+
+  .footer-description,
+  .created {
+    font-size: 12px;
+  }
+
+  .social-icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+}
